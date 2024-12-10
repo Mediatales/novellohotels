@@ -8,7 +8,7 @@ const page = () => {
       <div className="w-full">
         <img src="./assets/Welcome_img.png" alt='Welcome'/>
       </div>
-      {/* the essence of use */}
+      {/* the essence of use */}      
       <div className='w-full flex flex-col justify-center items-center bg-[#F7ECEE] mt-5'>
         <h1 className="pt-5 font-['Roboto_Serif'] text-3xl font-semibold leading-[48px]">The Essence of Us</h1>
        <div className='w-[70%] ' >
@@ -26,7 +26,7 @@ const page = () => {
           We look forward to welcoming you!</p>
        </div>
       </div>
-    </div>
+    
   )
 }
 
