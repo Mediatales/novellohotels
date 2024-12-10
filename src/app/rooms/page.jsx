@@ -1,20 +1,22 @@
-import React from 'react'
+import React from "react";
 
-function page() {
+const RoomsPage = () => {
   return (
-    <div className='w-full'>
-        <div className='relative'>
-            <img 
-            src='./assets/rooms-photos/Rooms_page_img.png' alt='Rooms Designed for Your Comfort'/>
-            <div className='absolute'>
-            <h1 className="font-['Roboto_Serif'] text-6xl font-bold text-black absolute  ">
-                Rooms Designed for Your Comfort
-            </h1>
-            </div>
-        </div>
-        
+    <div className="relative w-full">
+      {/* Background Image */}
+      <img
+        src="./assets/rooms-photos/Rooms_page_img.png"
+        alt="Rooms Designed for Your Comfort"
+        className="w-full h-[80vh] object-cover"
+      />
+      {/* Overlay Text */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <h1 className="text-4xl md:text-5xl font-bold text-white text-center">
+          Rooms Designed for Your Comfort
+        </h1>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default RoomsPage;

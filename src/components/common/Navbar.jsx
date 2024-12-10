@@ -2,7 +2,7 @@ import React from 'react';
 
 const Navbar = () => {
   return (
-    <nav className="bg-[#1B1833] w-full fixed">
+    <nav className="bg-[#1B1833] w-full fixed z-10">
       <div className="w-[90%]  flex justify-between items-center">
         <img src="./assets/Homepic/logo.png" alt="logo" className="ml-14" />
         <ul className="flex justify-center items-center gap-8">
