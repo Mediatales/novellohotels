@@ -9,7 +9,7 @@ const page = () => {
         <img src="./assets/Welcome_img.png" alt='Welcome'/>
       </div>
       {/* the essence of use */}
-
+      
         <h1 className="pt-5 font-['Roboto_Serif'] text-3xl font-semibold leading-[48px]">The Essence of Us</h1>
        <div className='w-[70%] ' >
        <p className='font-open-sans p-5 text-xl font-light leading-8 text-center font-w-300'>
@@ -26,7 +26,7 @@ const page = () => {
           We look forward to welcoming you!</p>
        </div>
       </div>
-    </div>
+    
   )
 }
 
