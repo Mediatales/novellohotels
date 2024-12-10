@@ -4,7 +4,7 @@ const Navbar = () => {
   return (
     <nav className="bg-[#1B1833] w-full fixed">
       <div className="w-[90%]  flex justify-between items-center">
-        <img src="./assets/logo.png" alt="logo" className="ml-14" />
+        <img src="./assets/Homepic/logo.png" alt="logo" className="ml-14" />
         <ul className="flex justify-center items-center gap-8">
           <li className="text-gray-100 hover:text-blue-900 cursor-pointer">Home</li>
           <li className="text-gray-100 hover:hover:text-blue-900 cursor-pointer">About</li>
