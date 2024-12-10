@@ -26,6 +26,7 @@ const page = () => {
           We look forward to welcoming you!</p>
        </div>
       </div>
+      </div>
     
   )
 }
