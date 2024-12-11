@@ -1,12 +1,20 @@
 import React from 'react'
-import Navbar from '@/components/common/Navbar'
+
 
 const page = () => {
   return (
     <div>
-    <Navbar/>
-      
+   <div>
+    <img src="./assets/Homepic/bghome.png" alt="" />
+   </div>
+      {/* checkavailaibility  before div*/}
+
+      <div>
+
+      </div>
     </div>
+
+
   )
 }
 
