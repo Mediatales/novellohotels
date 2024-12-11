@@ -3,7 +3,7 @@ import { FaInstagram, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#1B1833] text-gray-300 py-8 px-4">
+    <footer className="bg-[#1B1833] text-gray-300 py-3 px-4 mt-3 ">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8">
         {/* Address Section */}
         <div>
@@ -60,7 +60,7 @@ const Footer = () => {
       </div>
 
       {/* Copyright Section */}
-      <div className="border-t border-gray-700 mt-8 pt-4 text-center">
+      <div className="border-t border-gray-700 mt-4 pt-4 text-center">
         <p>Copyright 2024 by Novello</p>
       </div>
     </footer>
