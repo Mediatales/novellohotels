@@ -2,7 +2,8 @@ import React from "react";
 
 const RoomsPage = () => {
   return (
-    <div className="relative w-full">
+    <div>
+      <div className="relative w-full">
       {/* Background Image */}
       <img
         src="./assets/rooms-photos/Rooms_page_img.png"
@@ -15,6 +16,7 @@ const RoomsPage = () => {
           Rooms Designed for Your Comfort
         </h1>
       </div>
+    </div>
     </div>
   );
 };

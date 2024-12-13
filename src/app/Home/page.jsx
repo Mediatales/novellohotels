@@ -1,12 +1,15 @@
 import React from "react";
 import About from "@/components/About";
+import Rooms from "@/components/Rooms";
+import TestimonialCard from "@/components/TestimonalCard";
+import Contact from "@/components/Contact";
 
 
 const page = () => {
   return (
     <div>
-      <div>
-        <img src="./assets/Homepic/bghome.png" alt="" />
+      <div >
+        <img src="./assets/Homepic/bghome.png" alt="" className="w-full" />
       </div>
       {/* checkavailaibility  before div*/}
 
@@ -55,7 +58,7 @@ const page = () => {
 
       {/* travel destinations*/}
 
-      <div className="flex flex-col items-center justify-center mt-6 " >
+      <div className="flex flex-col items-center justify-center mt-6  md:mt-6 md:block " >
       <h1 className="text-4xl md:text-5xl font-bold text-black text-center">Beautiful travel destination</h1>
 
       <div className="flex justify-evenly gap-6 mt-6 " >
@@ -81,6 +84,31 @@ const page = () => {
       </div>
 
       </div>
+
+      {/* rooms */}
+      <Rooms/>
+
+      {/* Amenities */}
+
+      <div className="mt-10 mb-6">
+  <h1 className="text-4xl md:text-5xl font-bold text-black text-center">
+    Our Best <span className="text-[#9A3D50]">Amenities</span>
+  </h1>
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-9 place-items-center">
+    <img src="./assets/Amenities/Ameniteies1.png" alt="Amenity 1" />
+    <img src="./assets/Amenities/Ameniteies2.png" alt="Amenity 2" />
+    <img src="./assets/Amenities/Ameniteies3.png" alt="Amenity 3" />
+    <img src="./assets/Amenities/Ameniteies4.png" alt="Amenity 4" />
+    <img src="./assets/Amenities/Ameniteies5.png" alt="Amenity 5" />
+    <img src="./assets/Amenities/Ameniteies6.png" alt="Amenity 6" />
+  </div>
+</div>
+
+      {/* Testimonals */}
+      <TestimonialCard/>
+
+      {/* contact */}
+      <Contact/>
     </div>
   );
 };
