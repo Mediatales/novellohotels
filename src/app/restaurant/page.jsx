@@ -32,10 +32,10 @@ const Page = () => {
             delightful culinary experience that caters to all palates. Set in a
             warm and welcoming ambiance, we serve a wide variety of dishes,
             from authentic Indian delicacies to international favorites,
-            prepared with the finest ingredients. Whether you're enjoying a
+            prepared with the finest ingredients. Whether youre enjoying a
             hearty breakfast, a light lunch, or an elegant dinner, our skilled
             chefs craft every meal with care. With impeccable service and a
-            focus on freshness, dining at The Novello’s restaurant ensures a
+            focus on freshness, dining at The Novellos restaurant ensures a
             memorable gastronomic journey for families, couples, and solo
             travelers alike.
           </p>
