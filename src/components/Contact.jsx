@@ -17,7 +17,7 @@ const Contact = () => {
   return (
     <section className="px-4 py-8 md:px-16 lg:px-24">
       <h2 className="text-center text-2xl font-bold mb-8">
-        We'd Love to Hear From You
+        We would Love to Hear From You
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
         {/* Left Section with Image */}
