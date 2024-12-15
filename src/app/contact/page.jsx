@@ -45,7 +45,7 @@ const ContactPage = () => {
           {/* Contact Details */}
           <div className="md:w-1/2">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
-              Feel Free to Connect, We’ll Be Happy to Assist You
+              Feel Free to Connect, We will Be Happy to Assist You
             </h2>
             <div className="space-y-4 text-gray-700">
               <p>
