@@ -5,8 +5,17 @@ const page = () => {
   return (
     <div className='w-full h-full'>
       {/* welcome section */}
-      <div className="w-full">
-        <img src="./assets/Welcome_img.png" alt='Welcome'/>
+      <div className="relative w-full">
+        <img
+          src="./assets/about/imgabout.png"
+          alt="Welcome"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40">
+          <h1 className="text-white text-4xl md:text-6xl font-bold text-center">
+          Welcome to the Heart of Comfort
+          </h1>
+        </div>
       </div>
       {/* the essence of use */}      
       <div className='w-full flex flex-col justify-center items-center bg-[#F7ECEE] mt-5'>
