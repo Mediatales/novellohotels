@@ -6,7 +6,7 @@ const RoomsPage = () => {
     <div>
       <div className="relative w-full">
         <img
-          src="./assets/rooms-photos/Rooms_page_img.png"
+          src="./assets/rooms/roomimg.png"
           alt="Rooms Designed for Your Comfort"
           className="w-full h-[80vh] object-cover"
         />
