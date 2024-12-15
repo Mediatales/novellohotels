@@ -33,7 +33,7 @@ const Navbar = () => {
             onMouseEnter={() => setIsDropdownOpen(true)}
             onMouseLeave={() => setIsDropdownOpen(false)}
           >
-            Rooms
+           <Link href="/rooms"> Rooms</Link>
             {isDropdownOpen && (
               <ul className="absolute top-full left-0 bg-[#1B1833] shadow-lg rounded-md py-2 mt-2">
                 <li className="px-4 py-2 hover:bg-gray-700">
