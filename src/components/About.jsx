@@ -9,7 +9,7 @@ const About = () => {
           About
         </h1>
         <p className="text-xl md:text-2xl text-gray-600 text-center">
-          Nestled in the heart of the ser'ene hills of Mussoorie, The Novello by
+          Nestled in the heart of the serene hills of Mussoorie, The Novello by
           Hotel Evergreen offers a sanctuary of peace and luxury. Our 15
           meticulously designed rooms provide an exquisite retreat for travelers
           seeking comfort and elegance. Whether youre here for a romantic
