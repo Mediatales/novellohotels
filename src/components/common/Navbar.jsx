@@ -1,17 +1,18 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileRoomsDropdownOpen, setIsMobileRoomsDropdownOpen] = useState(false);
 
   return (
     <nav className="bg-[#1B1833] w-full fixed z-10">
       <div className="w-[90%] mx-auto flex justify-between items-center">
         <Link href="/">
-          <img src="./assets/Homepic/logo.png" alt="logo" />
+          <img src="https://res.cloudinary.com/derv1v0oi/image/upload/v1734285272/logo_ijp4ko.png" alt="logo" />
         </Link>
 
         {/* Desktop Menu */}
@@ -29,21 +30,28 @@ const Navbar = () => {
             <Link href="/restaurant" className="text-gray-100 hover:text-blue-900">Restaurant</Link>
           </li>
           <li
-            className="relative text-gray-100 hover:text-blue-900 cursor-pointer"
+            className="relative text-gray-100 hover:text-blue-900 cursor-pointer group"
             onMouseEnter={() => setIsDropdownOpen(true)}
             onMouseLeave={() => setIsDropdownOpen(false)}
           >
-           <Link href="/rooms"> Rooms</Link>
+            <div className="flex items-center">
+              <Link href="/rooms" className="mr-1">Rooms</Link>
+              <FaChevronDown className="text-xs" />
+            </div>
             {isDropdownOpen && (
-              <ul className="absolute top-full left-0 bg-[#1B1833] shadow-lg rounded-md py-2 mt-2">
+              <ul 
+                className="absolute top-full left-0 bg-[#dedde5] shadow-lg rounded-md py-2 mt-2 min-w-[150px]"
+                onMouseEnter={() => setIsDropdownOpen(true)}
+                onMouseLeave={() => setIsDropdownOpen(false)}
+              >
                 <li className="px-4 py-2 hover:bg-gray-700">
-                  <Link href="/rooms/deluxe">Deluxe Room</Link>
+                  <Link href="/rooms/deluxe" className="text-black hover:text-white">Deluxe Room</Link>
                 </li>
                 <li className="px-4 py-2 hover:bg-gray-700">
-                  <Link href="/rooms/suite">Suite</Link>
+                  <Link href="/rooms/suite" className="text-black hover:text-white">Suite</Link>
                 </li>
                 <li className="px-4 py-2 hover:bg-gray-700">
-                  <Link href="/rooms/family">Family Room</Link>
+                  <Link href="/rooms/family" className="text-black hover:text-white">Family Room</Link>
                 </li>
               </ul>
             )}
@@ -87,10 +95,33 @@ const Navbar = () => {
                 Restaurant
               </Link>
             </li>
-            <li className="py-2">
-              <Link href="/rooms" className="text-gray-100 hover:text-blue-900" onClick={() => setIsMobileMenuOpen(false)}>
-                Rooms
-              </Link>
+            <li 
+              className="py-2 w-full"
+              onClick={() => setIsMobileRoomsDropdownOpen(!isMobileRoomsDropdownOpen)}
+            >
+              <div className="flex justify-center items-center text-gray-100 hover:text-blue-900">
+                <Link  className="mr-2">Rooms</Link>
+                <FaChevronDown className={`transition-transform ${isMobileRoomsDropdownOpen ? 'rotate-180' : ''}`} />
+              </div>
+              {isMobileRoomsDropdownOpen && (
+                <ul className="bg-[#1B1833] mt-2">
+                  <li className="py-2 text-center">
+                    <Link href="/rooms/deluxe" className="text-gray-100 hover:text-blue-900" onClick={() => setIsMobileMenuOpen(false)}>
+                      Deluxe Room
+                    </Link>
+                  </li>
+                  <li className="py-2 text-center">
+                    <Link href="/rooms/suite" className="text-gray-100 hover:text-blue-900" onClick={() => setIsMobileMenuOpen(false)}>
+                      Suite
+                    </Link>
+                  </li>
+                  <li className="py-2 text-center">
+                    <Link href="/rooms/family" className="text-gray-100 hover:text-blue-900" onClick={() => setIsMobileMenuOpen(false)}>
+                      Family Room
+                    </Link>
+                  </li>
+                </ul>
+              )}
             </li>
             <li className="py-2">
               <Link href="/packages" className="text-gray-100 hover:text-blue-900" onClick={() => setIsMobileMenuOpen(false)}>
