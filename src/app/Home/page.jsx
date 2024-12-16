@@ -6,7 +6,7 @@ import Rooms from "@/components/Rooms";
 import TestimonialCard from "@/components/TestimonalCard";
 import Contact from "@/components/Contact";
 
-const page = () => {
+const Page = () => {
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [adults, setAdults] = useState(2);
@@ -257,4 +257,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
