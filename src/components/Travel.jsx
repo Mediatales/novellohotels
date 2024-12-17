@@ -30,7 +30,7 @@ const DestinationCards = () => {
   ];
 
   return (
-    <div className=" mt-6 flex justify-center items-center bg-gray-100">
+    <div className=" mt-6 flex justify-center items-center ">
       <div className="w-full max-w-7xl px-4">
         <div className="text-center mb-8">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black">
