@@ -1,10 +1,13 @@
 "use client";
 import React, { useState } from "react";
+import { motion } from 'framer-motion';
 import About from "@/components/About";
 import Link from "next/link";
 import Rooms from "@/components/Rooms";
 import TestimonialCard from "@/components/TestimonalCard";
 import Contact from "@/components/Contact";
+import { ArrowRight } from 'lucide-react';
+import Travel from "@/components/Travel";
 
 const Page = () => {
 
@@ -17,8 +20,40 @@ const Page = () => {
   return (
     <div>
       <div>
-        <img src="./assets/Homepic/bghome.png" alt="" className="w-full" />
+        <section className="relative h-screen">
+      <div className="absolute inset-0">
+        <img
+          src="./assets/Homepic/bghome.png"
+          alt="Luxury Hotel"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
       </div>
+      
+      <div className="relative h-full flex items-center justify-center text-center text-white px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <h1 className="text-5xl md:text-7xl font-serif mb-6">Welcome to Novello</h1>
+          <p className="text-xl md:text-2xl mb-8">Experience luxury redefined</p>
+           <Link href="/rooms">
+        <button             className="inline-flex items-center bg-[#9A3D50] text-white px-8 py-3 rounded-full hover:bg-amber-700 transition-colors duration-300"
+>
+        Book Your Stay
+        <ArrowRight className="ml-2" size={20} />
+        </button>
+        </Link>
+
+          
+        </motion.div>
+      </div>
+    </section>
+
+      </div>
+
+
       {/* checkavailaibility  before div*/}
 
       <div className="flex flex-col md:flex-row items-center justify-center gap-4 p-4 bg-gray-100">
@@ -173,61 +208,7 @@ const Page = () => {
 
       {/* travel destinations*/}
 
-      <div className="flex flex-col items-center justify-center mt-6 md:mt-6">
-        <h1 className="text-4xl md:text-5xl font-bold text-black text-center">
-          Beautiful Travel Destination
-        </h1>
-
-        <div className="flex flex-wrap justify-center gap-6 mt-6">
-          {/* Card 1 */}
-          <div className="border shadow-lg border-gray-300 rounded-lg w-full sm:w-[calc(50%-12px)] md:w-[calc(25%-12px)]">
-            <img
-              src="./assets/Homepic/place1.png"
-              alt="img"
-              className="w-full h-auto rounded-t-lg"
-            />
-            <p className="font-[open_sans] text-center py-2">
-              Top Tibba Trek - Mussoorie
-            </p>
-          </div>
-
-          {/* Card 2 */}
-          <div className="border shadow-lg border-gray-300 rounded-lg w-full sm:w-[calc(50%-12px)] md:w-[calc(25%-12px)]">
-            <img
-              src="./assets/Homepic/place2.png"
-              alt="img"
-              className="w-full h-auto rounded-t-lg"
-            />
-            <p className="font-[open_sans] text-center py-2">
-              Top Tibba Trek - Mussoorie
-            </p>
-          </div>
-
-          {/* Card 3 */}
-          <div className="border shadow-lg border-gray-300 rounded-lg w-full sm:w-[calc(50%-12px)] md:w-[calc(25%-12px)]">
-            <img
-              src="./assets/Homepic/place3.png"
-              alt="img"
-              className="w-full h-auto rounded-t-lg"
-            />
-            <p className="font-[open_sans] text-center py-2">
-              Top Tibba Trek - Mussoorie
-            </p>
-          </div>
-
-          {/* Card 4 */}
-          <div className="border shadow-lg border-gray-300 rounded-lg w-full sm:w-[calc(50%-12px)] md:w-[calc(25%-12px)]">
-            <img
-              src="./assets/Homepic/place4.png"
-              alt="img"
-              className="w-full h-auto rounded-t-lg"
-            />
-            <p className="font-[open_sans] text-center py-2">
-              Top Tibba Trek - Mussoorie
-            </p>
-          </div>
-        </div>
-      </div>
+      <Travel/>
 
       {/* rooms */}
       <Rooms />
