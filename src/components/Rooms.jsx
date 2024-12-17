@@ -1,114 +1,76 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import dynamic from 'next/dynamic';
-import Link from 'next/link';
+import React from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
-// Dynamically import Slider to ensure it's only loaded on the client side
-const Slider = dynamic(() => import('react-slick'), {
-  ssr: false,
-  loading: () => <div className="w-full h-[400px] flex items-center justify-center">Loading...</div>
-});
+const rooms = [
+  {
+    title: "Deluxe Room",
+    price: "₹ 5,000/Night",
+    image: "/assets/Homepic/roompic.png",
+  },
+  {
+    title: "Executive Room",
+    price: "₹ 7,500/Night",
+    image: "/assets/Homepic/roompic.png",
+  },
+  {
+    title: "Suite Room",
+    price: "₹ 10,000/Night",
+    image: "/assets/Homepic/roompic.png",
+  },
+];
 
-// Import CSS for slick-carousel
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-
-const Rooms = () => {
-  // State to track if component is mounted
-  const [isMounted, setIsMounted] = useState(false);
-
-  // Ensure we only render slider client-side
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  // Responsive carousel settings
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1
-  };
-
-  // Room card component
-  const RoomCard = ({ imageSrc, roomType, price }) => (
-    <div className="border shadow-md p-4 mx-2 h-full bg-white rounded-lg">
-      <img
-        src={imageSrc}
-        alt={roomType}
-        className="w-full h-48 object-cover rounded-lg mb-4"
-      />
-      <p className="font-bold text-lg mb-2">{roomType}</p>
-      <div className="flex justify-between items-center">
-        <p className="text-[#555] text-sm font-medium">{price}/Night</p>
-        <Link href="/rooms">
-          <button className="bg-[#9A3D50] hover:bg-[#9A3D50]/80 text-white font-semibold py-2 px-4 rounded-lg">
-            Book Now
-          </button>
-        </Link>
-      </div>
-    </div>
-  );
-
-  // Room data
-  const rooms = [
-    {
-      imageSrc: "/assets/Homepic/roompic.png",
-      roomType: "Deluxe Room",
-      price: "₹ 5,000"
-    },
-    {
-      imageSrc: "/assets/Homepic/roompic.png",
-      roomType: "Executive Room",
-      price: "₹ 7,500"
-    },
-    {
-      imageSrc: "/assets/Homepic/roompic.png",
-      roomType: "Suite Room",
-      price: "₹ 10,000"
-    },
-    
-  ];
-
+export default function RoomPreviewSection() {
   return (
-    <div className="flex flex-col items-center justify-center gap-6 mt-10 px-4">
-      <h1 className="text-4xl md:text-5xl font-bold text-black text-center">
-        Rooms & Suites
-      </h1>
+    <section className="py-10 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl font-serif text-gray-900 font-semibold mb-4">Rooms & Suites</h2>
+          <p className="text-xl text-gray-600">
+            Explore our luxurious rooms designed to provide ultimate comfort.
+          </p>
+        </motion.div>
 
-      <div className="w-full max-w-6xl">
-        {/* Static grid for larger screens */}
-        <div className="hidden lg:grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {rooms.map((room, index) => (
-            <RoomCard
-              key={index}
-              imageSrc={room.imageSrc}
-              roomType={room.roomType}
-              price={room.price}
-            />
+            <motion.div
+              key={room.title}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              viewport={{ once: true }}
+              className="group relative overflow-hidden rounded-lg"
+            >
+              <img
+                src={room.image}
+                alt={room.title}
+                className="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                <div>
+                  <h3 className="text-xl text-white font-semibold mb-2">{room.title}</h3>
+                  <p className="text-gray-200 mb-4">{room.price}</p>
+                  <Link
+                    href="/rooms"
+                    className="inline-flex items-center text-white hover:text-amber-400 transition-colors duration-300"
+                  >
+                    Book Now <ArrowRight className="ml-2" size={16} />
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
           ))}
         </div>
-
-        {/* Carousel for smaller screens */}
-        <div className="lg:hidden">
-          {isMounted && (
-            <Slider {...settings}>
-              {rooms.map((room, index) => (
-                <RoomCard
-                  key={index}
-                  imageSrc={room.imageSrc}
-                  roomType={room.roomType}
-                  price={room.price}
-                />
-              ))}
-            </Slider>
-          )}
-        </div>
       </div>
-    </div>
+    </section>
   );
-};
-
-export default Rooms;
+}
