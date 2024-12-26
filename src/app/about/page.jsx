@@ -3,9 +3,12 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div className='w-full h-full'>
+    <div >
+      <div  className='w-full h-full ' >
+      
+      <div>
       {/* welcome section */}
-      <div className="relative w-full">
+      <div className="relative w-full h-[500px]">
         <img
           src="./assets/about/imgabout.png"
           alt="Welcome"
@@ -36,6 +39,8 @@ const page = () => {
        </div>
       </div>
       </div>
+    </div>
+    </div>
     
   )
 }

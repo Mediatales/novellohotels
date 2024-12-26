@@ -1,17 +1,17 @@
 "use client";
 import React, { useState } from "react";
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import About from "@/components/About";
 import Link from "next/link";
 import Rooms from "@/components/Rooms";
 import TestimonialCard from "@/components/TestimonalCard";
 import Contact from "@/components/Contact";
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight } from "lucide-react";
 import Travel from "@/components/Travel";
 import Availaibility from "@/components/Availaibility";
+import Gallery from "@/components/gallery";
 
 const Page = () => {
-
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [adults, setAdults] = useState(2);
   const [children, setChildren] = useState(0);
@@ -22,42 +22,41 @@ const Page = () => {
     <div>
       <div>
         <section className="relative h-screen">
-      <div className="absolute inset-0">
-        <img
-          src="./assets/Homepic/bghome.png"
-          alt="Luxury Hotel"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-      </div>
-      
-      <div className="relative h-full flex items-center justify-center text-center text-white px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
-          <h1 className="text-5xl md:text-7xl font-serif mb-6">Welcome to Novello</h1>
-          <p className="text-xl md:text-2xl mb-8">Experience luxury redefined</p>
-           <Link href="/rooms">
-        <button             className="inline-flex items-center bg-[#9A3D50] text-white px-8 py-3 rounded-full hover:bg-amber-700 transition-colors duration-300"
->
-        Book Your Stay
-        <ArrowRight className="ml-2" size={20} />
-        </button>
-        </Link>
+          <div className="absolute inset-0">
+            <img
+              src="./assets/Homepic/bghome.png"
+              alt="Luxury Hotel"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+          </div>
 
-          
-        </motion.div>
+          <div className="relative h-full flex items-center justify-center text-center text-white px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+            >
+              <h1 className="text-5xl md:text-7xl font-serif mb-6">
+                Welcome to Novello
+              </h1>
+              <p className="text-xl md:text-2xl mb-8">
+                Experience luxury redefined
+              </p>
+              <Link href="/rooms">
+                <button className="inline-flex items-center bg-[#9A3D50] text-white px-8 py-3 rounded-full hover:bg-amber-700 transition-colors duration-300">
+                  Book Your Stay
+                  <ArrowRight className="ml-2" size={20} />
+                </button>
+              </Link>
+            </motion.div>
+          </div>
+        </section>
       </div>
-    </section>
-
-      </div>
-
 
       {/* checkavailaibility  before div*/}
 
-      <Availaibility/>
+      <Availaibility />
 
       {/* Courtesies */}
       <div className="py-10">
@@ -104,7 +103,7 @@ const Page = () => {
 
       {/* travel destinations*/}
 
-      <Travel/>
+      <Travel />
 
       {/* rooms */}
       <Rooms />
@@ -124,6 +123,10 @@ const Page = () => {
           <img src="./assets/Amenities/Ameniteies6.png" alt="Amenity 6" />
         </div>
       </div>
+
+      {/* Gallery */}
+
+      <Gallery/>
 
       {/* Testimonals */}
       <TestimonialCard />

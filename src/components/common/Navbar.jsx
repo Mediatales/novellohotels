@@ -17,7 +17,6 @@ const Navbar = () => {
     }));
   };
 
-  // Close mobile menu on screen resize to desktop width
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768 && menuState.isMobileMenuOpen) {
@@ -70,14 +69,12 @@ const Navbar = () => {
           </li>
           <li
             className="relative text-gray-100 hover:text-blue-900 cursor-pointer group"
-            onMouseEnter={() => toggleState("isDropdownOpen")}
-            onMouseLeave={() => toggleState("isDropdownOpen")}
+            onMouseEnter={() => setMenuState({ ...menuState, isDropdownOpen: true })}
+            onMouseLeave={() => setMenuState({ ...menuState, isDropdownOpen: false })}
           >
             <div className="flex items-center">
-              <Link href="/rooms" className="mr-1">
-                Rooms
-              </Link>
-              <FaChevronDown className="text-xs" />
+              Rooms
+              <FaChevronDown className="text-xs ml-1" />
             </div>
             {menuState.isDropdownOpen && (
               <ul className="absolute top-full left-0 bg-[#dedde5] shadow-lg rounded-md py-2 mt-2 min-w-[150px]">
@@ -176,13 +173,10 @@ const Navbar = () => {
               <div
                 className="flex justify-center items-center text-gray-100 hover:text-blue-900"
                 onClick={() => toggleState("isMobileRoomsDropdownOpen")}
-                aria-expanded={menuState.isMobileRoomsDropdownOpen}
               >
-                <Link href="/rooms" className="mr-2">
-                  Rooms
-                </Link>
+                Rooms
                 <FaChevronDown
-                  className={`transition-transform ${
+                  className={`ml-1 transition-transform ${
                     menuState.isMobileRoomsDropdownOpen ? "rotate-180" : ""
                   }`}
                 />

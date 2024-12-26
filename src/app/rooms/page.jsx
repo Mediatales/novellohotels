@@ -22,7 +22,7 @@ const RoomsPage = () => {
           {/* Card 1 */}
           <div className="border rounded-lg shadow-lg overflow-hidden">
             <img
-              src="./assets/Homepic/roompic.png"
+              src="./assets/Homepic/room1.png"
               alt="Deluxe Room"
               className="w-full h-56 object-cover"
             />
@@ -61,7 +61,7 @@ const RoomsPage = () => {
           {/* Card 2 */}
           <div className="border rounded-lg shadow-lg overflow-hidden">
             <img
-              src="./assets/Homepic/roompic.png"
+              src="./assets/Homepic/room2.png"
               alt="Executive Room with Balcony"
               className="w-full h-56 object-cover"
             />
@@ -102,7 +102,7 @@ const RoomsPage = () => {
           {/* Card 3 */}
           <div className="border rounded-lg shadow-lg overflow-hidden">
             <img
-              src="./assets/Homepic/roompic.png"
+              src="./assets/Homepic/room3.png"
               alt="Executive Room with Mountain View"
               className="w-full h-56 object-cover"
             />
