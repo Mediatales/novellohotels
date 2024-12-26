@@ -29,7 +29,7 @@ const About = () => {
           family holiday, or a business escape, we ensure a memorable stay
           tailored to your needs.
         </p>
-        <Link href="/aboutus">
+        <Link href="/about">
           <button className="bg-[#9A3D50] hover:bg-[#872D42] text-white font-semibold text-lg py-3 px-6 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300">
             Discover More
           </button>
