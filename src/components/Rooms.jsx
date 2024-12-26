@@ -9,17 +9,17 @@ const rooms = [
   {
     title: "Deluxe Room",
     price: "₹ 5,000/Night",
-    image: "/assets/Homepic/roompic.png",
+    image: "/assets/Homepic/room1.png",
   },
   {
-    title: "Executive Room",
+    title: "Executive Room with Balcony",
     price: "₹ 7,500/Night",
-    image: "/assets/Homepic/roompic.png",
+    image: "/assets/Homepic/room2.png",
   },
   {
-    title: "Suite Room",
+    title: "Executive Room with View",
     price: "₹ 10,000/Night",
-    image: "/assets/Homepic/roompic.png",
+    image: "/assets/Homepic/room3.png",
   },
 ];
 
@@ -61,7 +61,7 @@ export default function RoomPreviewSection() {
                   <p className="text-gray-200 mb-4">{room.price}</p>
                   <Link
                     href="/rooms"
-                    className="inline-flex items-center text-white hover:text-amber-400 transition-colors duration-300"
+                    className="inline-flex items-center text-white hover:text-red-400 transition-colors duration-300"
                   >
                     Book Now <ArrowRight className="ml-2" size={16} />
                   </Link>
