@@ -9,7 +9,7 @@ import Contact from "@/components/Contact";
 import { ArrowRight } from "lucide-react";
 import Travel from "@/components/Travel";
 import Availaibility from "@/components/Availaibility";
-import Gallery from "@/components/gallery";
+import Gallery from "@/components/Gallery";
 
 const Page = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
