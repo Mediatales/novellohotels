@@ -17,17 +17,21 @@ const ImageCarousel = () => {
       orientation: "landscape"
     },
     {
-      url: "https://res.cloudinary.com/dqggm4k7u/image/upload/v1735200971/room1_b17ux9.png",
+      url: "https://res.cloudinary.com/dqggm4k7u/image/upload/v1735207101/view9_mgdwfp.png",
       orientation: "landscape"
     },
     {
-      url: "https://res.cloudinary.com/dqggm4k7u/image/upload/v1735203337/rest1_s6fayt.png",
+      url: "https://res.cloudinary.com/dqggm4k7u/image/upload/v1735206545/rest9_gnw6le.png",
       orientation: "portrait"
     },
     {
-      url: "https://res.cloudinary.com/dqggm4k7u/image/upload/v1735207070/view2_nxk9cf.png",
+      url: "https://res.cloudinary.com/dqggm4k7u/image/upload/v1735205218/room9_dxpccr.png",
       orientation: "landscape"
-    }
+    },
+    {
+      url: "https://res.cloudinary.com/dqggm4k7u/image/upload/v1735205218/room9_dxpccr.png",
+      orientation: "landscape"
+    },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
