@@ -198,7 +198,7 @@ const Navbar = () => {
                       className="text-gray-100 hover:text-blue-900"
                       onClick={() => toggleState("isMobileMenuOpen")}
                     >
-                      Suite
+                      Executive Room with Balcony
                     </Link>
                   </li>
                   <li className="py-2 text-center">
@@ -207,7 +207,7 @@ const Navbar = () => {
                       className="text-gray-100 hover:text-blue-900"
                       onClick={() => toggleState("isMobileMenuOpen")}
                     >
-                      Family Room
+                      Executive Room with View
                     </Link>
                   </li>
                 </ul>

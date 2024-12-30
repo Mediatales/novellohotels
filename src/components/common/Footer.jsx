@@ -3,15 +3,15 @@ import { FaInstagram, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#1B1833] text-gray-300 py-3 px-4 mt-3 ">
+    <footer className="bg-[#1B1833] text-gray-300 py-3 px-4  ">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8">
         {/* Address Section */}
         <div>
           <h3 className="text-lg font-semibold text-red-500 mb-4">Address</h3>
           <p>Bus Stand, Picture Palace Road, Near Kulri, Mussoorie, Uttarakhand, 248179</p>
           <p>thenovellobyhotelevergreen@gmail.com</p>
-          <p>Hotel: +91 8445581177</p>
-          <p>Hotel: +91 8266966987</p>
+          <p>Contact: +91 8445581177 , +91 8266966987</p>
+          <p> </p>
           <div className="flex gap-4 mt-4">
             <FaInstagram className="text-2xl cursor-pointer hover:text-red-500" />
             <FaFacebook className="text-2xl cursor-pointer hover:text-red-500" />
@@ -53,9 +53,11 @@ const Footer = () => {
 
         {/* Hours Section */}
         <div>
-          <h3 className="text-lg font-semibold text-red-500 mb-4">Hours</h3>
-          <p>Mon - Fri: 9:00 AM to 6:00 PM</p>
-          <p>Sat - Sun: 8:00 AM to 4:00 PM</p>
+          <h3 className="text-lg font-semibold text-red-500 mb-4">Check in / Check Out</h3>
+          <div className='flex flex-col items-start '>
+          <p>Check in : 01:00 PM</p>
+          <p>Check out: 11:00 AM</p>
+          </div>
         </div>
       </div>
 

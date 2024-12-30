@@ -15,7 +15,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="px-4 py-8 md:px-16 lg:px-24">
+    <section className="px-4 py-8 md:px-16 lg:px-24  ">
       <h2 className="text-center text-2xl font-bold mb-8">
         We would Love to Hear From You
       </h2>
