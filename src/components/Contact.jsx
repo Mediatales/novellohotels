@@ -23,7 +23,7 @@ const Contact = () => {
         {/* Left Section with Image */}
         <div>
           <img
-            src="./assets/Homepic/imgcontact.png"
+            src="./assets/Homepic/contactimg.png"
             alt="Contact"
             className="w-full rounded-lg shadow-md"
           />
