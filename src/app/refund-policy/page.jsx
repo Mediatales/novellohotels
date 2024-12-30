@@ -3,7 +3,7 @@ import { FaCalendarTimes, FaMoneyBillWave } from "react-icons/fa";
 
 const RefundPolicyPage = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-200">
+    <div className="min-h-screen bg-pink-100">
       <div className="flex flex-col justify-center items-center w-[90%] mx-auto py-10">
         <h1 className="text-4xl font-extrabold text-gray-800 mb-6 mt-24">Refund Policy</h1>
 

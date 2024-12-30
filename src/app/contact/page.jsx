@@ -24,7 +24,7 @@ const ContactPage = () => {
   };
 
   return (
-    <div>
+    <div className=" h-full bg-pink-100">
       {/* Hero Section */}
       <div className="relative w-full h-[500px]">
         <img
@@ -43,12 +43,13 @@ const ContactPage = () => {
       <div className="py-12 px-6 md:px-16 lg:px-32 bg-pink-100">
         <div className="flex flex-col md:flex-row gap-12">
           {/* Contact Details */}
-          <div className="md:w-1/2">
+          <div className="md:w-1/2 items-center mt-11">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
               Feel Free to Connect, We will Be Happy to Assist You
             </h2>
             <div className="space-y-4 text-gray-700">
-              <p>
+             <div>
+             <p>
                 <strong>Address:</strong> Bus Stand, Picture Palace Road, Near
                 Kulri, Mussoorie, Uttarakhand, 248179
               </p>
@@ -56,6 +57,7 @@ const ContactPage = () => {
                 <strong>Email:</strong>{" "}
                 thenovellobyhotelevergreen@gmail.com
               </p>
+             </div>
               <p>
                 <strong>Phone:</strong> +91 8445581177, +91 8266966987
               </p>
@@ -142,7 +144,7 @@ const ContactPage = () => {
         </div>
       </div>
 
-     <div className="h-[40vh]">
+     <div className="h-[40vh] ">
      <iframe 
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2969.2268462357038!2d78.0833388748108!3d30.451225299184497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3908d10033880bf7%3A0xa441c4f2cb76f975!2sThe%20Novello%20By%20Hotel%20Evergreen!5e1!3m2!1sen!2sin!4v1734286269475!5m2!1sen!2sin"
         width="100%"
