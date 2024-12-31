@@ -47,7 +47,7 @@ const Page = () => {
         </div>
         <div className="md:w-1/2">
           <img
-            src="/assets/restaurant/imgR.png"
+            src="/assets/restaurant/restaurant.png"
             alt="The Novello"
             className="rounded-lg shadow-lg"
           />
