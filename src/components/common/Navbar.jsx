@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 
@@ -10,29 +10,70 @@ const Navbar = () => {
     isMobileRoomsDropdownOpen: false,
   });
 
-  const toggleState = (key) => {
+  const dropdownRef = useRef(null);
+
+  const toggleState = useCallback((key) => {
     setMenuState((prev) => ({
       ...prev,
       [key]: !prev[key],
     }));
-  };
+  }, []);
+
+  const closeAllMenus = useCallback(() => {
+    setMenuState({
+      isMobileMenuOpen: false,
+      isDropdownOpen: false,
+      isMobileRoomsDropdownOpen: false,
+    });
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768 && menuState.isMobileMenuOpen) {
-        setMenuState((prev) => ({ ...prev, isMobileMenuOpen: false }));
+      if (window.innerWidth >= 768) {
+        closeAllMenus();
+      }
+    };
+
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setMenuState(prev => ({
+          ...prev,
+          isDropdownOpen: false
+        }));
       }
     };
 
     window.addEventListener("resize", handleResize);
+    document.addEventListener("mousedown", handleClickOutside);
+    
     return () => {
       window.removeEventListener("resize", handleResize);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [menuState.isMobileMenuOpen]);
+  }, [closeAllMenus]);
+
+  const handleLinkClick = useCallback(() => {
+    closeAllMenus();
+  }, [closeAllMenus]);
+
+  const navigationLinks = [
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/gallery", label: "Gallery" },
+    { href: "/restaurant", label: "Restaurant" },
+    { href: "/packages", label: "Packages" },
+    { href: "/contact", label: "Contact" },
+  ];
+
+  const roomLinks = [
+    { href: "/rooms/deluxe", label: "Deluxe Room" },
+    { href: "/rooms/suite", label: "Executive Room with Balcony" },
+    { href: "/rooms/family", label: "Executive Room with View" },
+  ];
 
   return (
-    <nav className="bg-[#1B1833] w-full fixed z-10">
-      <div className="w-[90%] mx-auto flex justify-between items-center">
+    <nav className="bg-[#1B1833] w-full fixed z-50">
+      <div className="w-[90%] mx-auto flex justify-between items-center ">
         {/* Logo */}
         <Link href="/">
           <img
@@ -43,196 +84,153 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex justify-center items-center gap-8">
-          <li>
-            <Link href="/" className="text-gray-100 hover:text-blue-900">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link href="/about" className="text-gray-100 hover:text-blue-900">
-              About
-            </Link>
-          </li>
-          <li>
-            <Link href="/gallery" className="text-gray-100 hover:text-blue-900">
-              Gallery
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/restaurant"
-              className="text-gray-100 hover:text-blue-900"
-            >
-              Restaurant
-            </Link>
-          </li>
+        <ul className="hidden md:flex items-center space-x-8">
+          {navigationLinks.map((link, index) => {
+            if (link.label === "Packages") return null;
+            return (
+              <li key={index}>
+                <Link
+                  href={link.href}
+                  className="text-gray-100 hover:text-blue-400 transition-colors duration-200"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            );
+          })}
+
+          {/* Desktop Rooms Dropdown */}
           <li
-            className="relative text-gray-100 hover:text-blue-900 cursor-pointer group"
-            onMouseEnter={() => setMenuState({ ...menuState, isDropdownOpen: true })}
-            onMouseLeave={() => setMenuState({ ...menuState, isDropdownOpen: false })}
+            ref={dropdownRef}
+            className="relative"
           >
-            <div className="flex items-center">
+            <button 
+              className="flex items-center text-gray-100 hover:text-blue-400 transition-colors duration-200"
+              onClick={() => toggleState("isDropdownOpen")}
+            >
               Rooms
-              <FaChevronDown className="text-xs ml-1" />
-            </div>
+              <FaChevronDown className={`ml-2 mt-1 items-center text-xs transition-transform duration-200 ${
+                menuState.isDropdownOpen ? "rotate-180" : ""
+              }`} />
+            </button>
+            
             {menuState.isDropdownOpen && (
-              <ul className="absolute top-full left-0 bg-[#dedde5] shadow-lg rounded-md py-2 mt-2 min-w-[150px]">
-                <li className="px-4 py-2 hover:bg-gray-700">
-                  <Link
-                    href="/rooms/deluxe"
-                    className="text-black hover:text-white"
-                  >
-                    Deluxe Room
-                  </Link>
-                </li>
-                <li className="px-4 py-2 hover:bg-gray-700">
-                  <Link
-                    href="/rooms/suite"
-                    className="text-black hover:text-white"
-                  >
-                    Suite
-                  </Link>
-                </li>
-                <li className="px-4 py-2 hover:bg-gray-700">
-                  <Link
-                    href="/rooms/family"
-                    className="text-black hover:text-white"
-                  >
-                    Family Room
-                  </Link>
-                </li>
+              <ul className="absolute top-full left-0 bg-white rounded-lg shadow-lg py-2 mt-2 min-w-[200px] z-50">
+                {roomLinks.map((room, index) => (
+                  <li key={index} className="px-4 py-2 hover:bg-gray-100">
+                    <Link
+                      href={room.href}
+                      className="block text-gray-800 hover:text-blue-600 transition-colors duration-200"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleLinkClick();
+                      }}
+                    >
+                      {room.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             )}
           </li>
-          <li>
-            <Link
-              href="/packages"
-              className="text-gray-100 hover:text-blue-900"
-            >
-              Packages
-            </Link>
-          </li>
-          <li>
-            <Link href="/contact" className="text-gray-100 hover:text-blue-900">
-              Contact
-            </Link>
-          </li>
+
+          {navigationLinks.slice(-2).map((link, index) => (
+            <li key={index}>
+              <Link
+                href={link.href}
+                className="text-gray-100 hover:text-blue-400 transition-colors duration-200"
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
         </ul>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-gray-100 text-2xl"
+          className="md:hidden text-gray-100 p-2 hover:text-blue-400 transition-colors duration-200"
           onClick={() => toggleState("isMobileMenuOpen")}
-          aria-expanded={menuState.isMobileMenuOpen}
           aria-label="Toggle mobile menu"
         >
-          {menuState.isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+          {menuState.isMobileMenuOpen ? (
+            <FaTimes size={24} />
+          ) : (
+            <FaBars size={24} />
+          )}
         </button>
 
         {/* Mobile Menu */}
-        {menuState.isMobileMenuOpen && (
-          <ul className="absolute top-full left-0 w-full bg-[#1B1833] flex flex-col items-center py-4 shadow-lg z-20 transition-transform duration-300 ease-in-out">
-            <li className="py-2">
-              <Link
-                href="/"
-                className="text-gray-100 hover:text-blue-900"
-                onClick={() => toggleState("isMobileMenuOpen")}
-              >
-                Home
-              </Link>
-            </li>
-            <li className="py-2">
-              <Link
-                href="/about"
-                className="text-gray-100 hover:text-blue-900"
-                onClick={() => toggleState("isMobileMenuOpen")}
-              >
-                About
-              </Link>
-            </li>
-            <li className="py-2">
-              <Link
-                href="/gallery"
-                className="text-gray-100 hover:text-blue-900"
-                onClick={() => toggleState("isMobileMenuOpen")}
-              >
-                Gallery
-              </Link>
-            </li>
-            <li className="py-2">
-              <Link
-                href="/restaurant"
-                className="text-gray-100 hover:text-blue-900"
-                onClick={() => toggleState("isMobileMenuOpen")}
-              >
-                Restaurant
-              </Link>
-            </li>
-            <li className="py-2 w-full">
-              <div
-                className="flex justify-center items-center text-gray-100 hover:text-blue-900"
-                onClick={() => toggleState("isMobileRoomsDropdownOpen")}
+        <div
+          className={`md:hidden absolute top-full left-0 w-full bg-[#1B1833] shadow-lg transition-all duration-300 ease-in-out ${
+            menuState.isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
+        >
+          <ul className="py-4">
+            {navigationLinks.map((link, index) => {
+              if (link.label === "Packages") return null;
+              return (
+                <li key={index} className="px-6 py-2">
+                  <Link
+                    href={link.href}
+                    className="block text-gray-100 hover:text-blue-400 transition-colors duration-200"
+                    onClick={handleLinkClick}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
+
+            {/* Mobile Rooms Dropdown */}
+            <li className="px-6 py-2">
+              <button
+                className="flex items-center w-full text-gray-100 hover:text-blue-400 transition-colors duration-200"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleState("isMobileRoomsDropdownOpen");
+                }}
               >
                 Rooms
-                <FaChevronDown
-                  className={`ml-1 transition-transform ${
-                    menuState.isMobileRoomsDropdownOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </div>
-              {menuState.isMobileRoomsDropdownOpen && (
-                <ul className="bg-[#1B1833] mt-2">
-                  <li className="py-2 text-center">
-                    <Link
-                      href="/rooms/deluxe"
-                      className="text-gray-100 hover:text-blue-900"
-                      onClick={() => toggleState("isMobileMenuOpen")}
-                    >
-                      Deluxe Room
-                    </Link>
-                  </li>
-                  <li className="py-2 text-center">
-                    <Link
-                      href="/rooms/suite"
-                      className="text-gray-100 hover:text-blue-900"
-                      onClick={() => toggleState("isMobileMenuOpen")}
-                    >
-                      Executive Room with Balcony
-                    </Link>
-                  </li>
-                  <li className="py-2 text-center">
-                    <Link
-                      href="/rooms/family"
-                      className="text-gray-100 hover:text-blue-900"
-                      onClick={() => toggleState("isMobileMenuOpen")}
-                    >
-                      Executive Room with View
-                    </Link>
-                  </li>
+                <FaChevronDown className={`ml-2 transition-transform duration-200 ${
+                  menuState.isMobileRoomsDropdownOpen ? "rotate-180" : ""
+                }`} />
+              </button>
+              
+              <div className={`overflow-hidden transition-all duration-300 ${
+                menuState.isMobileRoomsDropdownOpen ? "max-h-48" : "max-h-0"
+              }`}>
+                <ul className="pl-4 py-2">
+                  {roomLinks.map((room, index) => (
+                    <li key={index} className="py-2">
+                      <Link
+                        href={room.href}
+                        className="block text-gray-100 hover:text-blue-400 transition-colors duration-200"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleLinkClick();
+                        }}
+                      >
+                        {room.label}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
-              )}
+              </div>
             </li>
-            <li className="py-2">
-              <Link
-                href="/packages"
-                className="text-gray-100 hover:text-blue-900"
-                onClick={() => toggleState("isMobileMenuOpen")}
-              >
-                Packages
-              </Link>
-            </li>
-            <li className="py-2">
-              <Link
-                href="/contact"
-                className="text-gray-100 hover:text-blue-900"
-                onClick={() => toggleState("isMobileMenuOpen")}
-              >
-                Contact
-              </Link>
-            </li>
+
+            {navigationLinks.slice(-2).map((link, index) => (
+              <li key={index} className="px-6 py-2">
+                <Link
+                  href={link.href}
+                  className="block text-gray-100 hover:text-blue-400 transition-colors duration-200"
+                  onClick={handleLinkClick}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
           </ul>
-        )}
+        </div>
       </div>
     </nav>
   );
