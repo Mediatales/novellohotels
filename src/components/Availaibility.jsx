@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+"use client";
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 const DateGuestRoomSelector = () => {
@@ -6,11 +7,21 @@ const DateGuestRoomSelector = () => {
   const [children, setChildren] = useState(0);
   const [rooms, setRooms] = useState(1);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [checkInDate, setCheckInDate] = useState(new Date().toISOString().split('T')[0]);
 
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
+  // Function to get the next day
+  const getNextDay = (date) => {
+    const nextDay = new Date(date);
+    nextDay.setDate(nextDay.getDate() + 1);
+    return nextDay.toISOString().split('T')[0];
+  };
+
   // Get today's date in YYYY-MM-DD format
   const today = new Date().toISOString().split('T')[0];
+  // Get the next day after check-in
+  const nextDay = getNextDay(checkInDate);
 
   return (
     <div className="flex flex-col md:flex-row items-center justify-center gap-4 p-4 bg-gray-100">
@@ -20,7 +31,8 @@ const DateGuestRoomSelector = () => {
         <input
           type="date"
           min={today}
-          defaultValue={today}
+          value={checkInDate}
+          onChange={(e) => setCheckInDate(e.target.value)}
           className="w-full px-3 py-2 border rounded"
         />
       </div>
@@ -30,13 +42,13 @@ const DateGuestRoomSelector = () => {
         <label className="block mb-1 font-semibold">Check-out</label>
         <input
           type="date"
-          min={today}
-          defaultValue={today}
+          min={nextDay}
+          defaultValue={nextDay}
           className="w-full px-3 py-2 border rounded"
         />
       </div>
 
-      {/* Dropdown Input */} 
+      {/* Dropdown Input */}
       <div className="relative w-full md:w-1/4">
         <label className="block mb-1 font-semibold">Guests & Rooms</label>
         <button
