@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import BookingForm from "@/components/BookingForm";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import RoomSelecter from "@/components/RoomSelecter";
 
 const Page = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -112,7 +113,8 @@ const Page = () => {
               </div>
 
               {/* Date and Guest Selection */}
-              <div className="mt-6">
+
+              {/* <div className="mt-6">
                 <h3 className="text-lg font-semibold">Select Date and Guest</h3>
                 <div className="grid grid-cols-2 gap-4 mt-2">
                   <input
@@ -133,7 +135,10 @@ const Page = () => {
                     <option>2 Adults - 1 Child</option>
                   </select>
                 </div>
-              </div>
+              </div> */}
+
+              <RoomSelecter/>
+
             </div>
           </div>
 
