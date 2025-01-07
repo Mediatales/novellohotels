@@ -30,7 +30,7 @@ const Page = () => {
                 <span className="text-sm text-gray-600">🛜 Free WiFi</span>
                 <span className="text-sm text-gray-600">☕ Tea / Coffee</span>
                 <span className="text-sm text-gray-600">🛁 Toiletries</span>
-                <span className="text-sm text-blue-500 cursor-pointer">+more Amenities</span>
+                <span className="text-sm text-[#9A3D50] cursor-pointer">+more Amenities</span>
               </div>
               <h3 className="text-lg font-semibold mt-4">Extra Services</h3>
               <ul className="list-disc list-inside text-sm text-gray-600 mt-2">
@@ -43,7 +43,7 @@ const Page = () => {
 
           {/* Booking Section */}
           <div className="p-4">
-            <h2 className="text-2xl font-bold">Deluxe Room</h2>
+            <h2 className="text-2xl font-bold">Executive Room with Balcony</h2>
             <p className="text-gray-600 mt-2">
               Indulge in luxury at our Deluxe Rooms in the heart of Mussoorie.
             </p>

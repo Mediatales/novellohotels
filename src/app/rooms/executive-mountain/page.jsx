@@ -43,7 +43,7 @@ const Page = () => {
 
           {/* Booking Section */}
           <div className="p-4">
-            <h2 className="text-2xl font-bold">Deluxe Room</h2>
+            <h2 className="text-2xl font-bold">Executive Room with Mountain View</h2>
             <p className="text-gray-600 mt-2">
               Indulge in luxury at our Deluxe Rooms in the heart of Mussoorie.
             </p>
