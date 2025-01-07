@@ -36,7 +36,7 @@ const DateGuestRoomSelector = () => {
         />
       </div>
 
-      {/* Dropdown Input */}
+      {/* Dropdown Input */} 
       <div className="relative w-full md:w-1/4">
         <label className="block mb-1 font-semibold">Guests & Rooms</label>
         <button
