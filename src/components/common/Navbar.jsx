@@ -67,8 +67,8 @@ const Navbar = () => {
 
   const roomLinks = [
     { href: "/rooms/deluxe", label: "Deluxe Room" },
-    { href: "/rooms/suite", label: "Executive Room with Balcony" },
-    { href: "/rooms/family", label: "Executive Room with View" },
+    { href: "/rooms/executive-mountain", label: "Executive Room with View" },
+    { href: "/rooms/executive-balcony", label: "Executive Room with Balcony" },
   ];
 
   return (

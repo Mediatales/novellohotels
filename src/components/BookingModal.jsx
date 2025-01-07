@@ -3,7 +3,7 @@ import { React, useState } from "react";
 import Script from "next/script";
 
 const BookingModal = ({ room, onClose }) => {
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState("");
 
   const createOrder = async () => {
     try {
@@ -12,20 +12,19 @@ const BookingModal = ({ room, onClose }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ amount: amount * 100 }),
+        body: JSON.stringify({ amount: Number(amount) * 100 }),
       });
 
       const data = await res.json();
-      
+
       const paymentData = {
         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
-        amount: amount * 100, // Razorpay expects amount in paise
+        amount: Number(amount) * 100, // Razorpay expects amount in paise
         currency: "INR",
         order_id: data.id,
         name: "Room Booking",
         description: `Booking for ${room?.name || "Room"}`,
         handler: async function (response) {
-          //verify payment
           console.log("Payment successful:", response);
         },
         prefill: {
@@ -63,7 +62,7 @@ const BookingModal = ({ room, onClose }) => {
             type="number"
             placeholder="Enter amount"
             value={amount}
-            onChange={(e) => setAmount(Number(e.target.value))}
+            onChange={(e) => setAmount(e.target.value)}
             className="px-4 py-2 rounded-md text-black border border-gray-300 focus:outline-none focus:ring focus:ring-[#9A3D50]"
           />
           <button
