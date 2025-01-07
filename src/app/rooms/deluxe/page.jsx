@@ -29,8 +29,8 @@ const Page = () => {
   };
 
   return (
-    <div className="mt-0">
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 py-20">
+    <div className="mt-0 ">
+      <div className="flex flex-col items-center justify-center min-h-screen  bg-gray-100 py-20">
         <div className="max-w-5xl w-full p-4">
           {/* Main Content */}
           <div className="grid md:grid-cols-2 gap-6 bg-white rounded-lg shadow-md overflow-hidden">

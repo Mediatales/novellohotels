@@ -38,7 +38,7 @@ const DateGuestRoomSelector = () => {
   };
 
   return (
-    <div className="w-full mt-3">
+    <div className="w-full mt-3 ">
       <div className="space-y-4">
         {/* Date Inputs Container */}
         <div className="grid grid-cols-2 gap-3">
@@ -73,7 +73,7 @@ const DateGuestRoomSelector = () => {
         </div>
 
         {/* Guests & Rooms Dropdown */}
-        <div className="relative" ref={dropdownRef}>
+        <div className="relative " ref={dropdownRef}>
           <label className="block text-sm font-medium text-gray-700 mb-1">Guests & Rooms</label>
           <button
             onClick={toggleDropdown}
@@ -92,7 +92,7 @@ const DateGuestRoomSelector = () => {
           </button>
 
           {dropdownOpen && (
-            <div className="absolute left-0 right-0 mt-1 bg-white border border-gray-200 rounded-md shadow-lg z-[9999]">
+            <div className=" left-0 right-0 mt-1 bg-white border border-gray-200 rounded-md shadow-lg sm:w-auto ">
               <div className="p-3 space-y-4">
                 {/* Adults */}
                 <div className="flex justify-between items-center">
