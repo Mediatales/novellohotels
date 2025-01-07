@@ -104,6 +104,7 @@ const Navbar = () => {
             ref={dropdownRef}
             className="relative"
           >
+            <Link href="/rooms">
             <button 
               className="flex items-center text-gray-100 hover:text-blue-400 transition-colors duration-200"
               onClick={() => toggleState("isDropdownOpen")}
@@ -113,6 +114,7 @@ const Navbar = () => {
                 menuState.isDropdownOpen ? "rotate-180" : ""
               }`} />
             </button>
+            </Link>
             
             {menuState.isDropdownOpen && (
               <ul className="absolute top-full left-0 bg-white rounded-lg shadow-lg py-2 mt-2 min-w-[200px] z-50">
