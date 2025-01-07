@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import BookingForm from "@/components/BookingForm";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import RoomSelecter from "@/components/RoomSelecter";
 
 const Page = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -11,7 +12,7 @@ const Page = () => {
   const closeForm = () => setIsFormOpen(false);
 
   const carouselImages = [
-    "https://res.cloudinary.com/derv1v0oi/image/upload/v1734289145/deluxeImg_n26z5o.png",
+        "https://res.cloudinary.com/derv1v0oi/image/upload/v1734289145/deluxeImg_n26z5o.png",
 
     "https://res.cloudinary.com/dqggm4k7u/image/upload/v1735200971/room1_b17ux9.png",
     "https://res.cloudinary.com/dqggm4k7u/image/upload/v1735205184/room5_s5twil.png",
@@ -65,9 +66,9 @@ const Page = () => {
                   <span className="text-sm text-gray-600">🛜 Free WiFi</span>
                   <span className="text-sm text-gray-600">☕ Tea / Coffee</span>
                   <span className="text-sm text-gray-600">🛁 Toiletries</span>
-                  <span className="text-sm text-blue-500 cursor-pointer">
+                  {/* <span className="text-sm text-blue-500 cursor-pointer">
                     +more Amenities
-                  </span>
+                  </span> */}
                 </div>
                 <h3 className="text-lg font-semibold mt-4">Extra Services</h3>
                 <ul className="list-disc list-inside text-sm text-gray-600 mt-2">
@@ -112,7 +113,7 @@ const Page = () => {
               </div>
 
               {/* Date and Guest Selection */}
-              <div className="mt-6">
+              {/* <div className="mt-6">
                 <h3 className="text-lg font-semibold">Select Date and Guest</h3>
                 <div className="grid grid-cols-2 gap-4 mt-2">
                   <input
@@ -133,7 +134,9 @@ const Page = () => {
                     <option>2 Adults - 1 Child</option>
                   </select>
                 </div>
-              </div>
+              </div> */}
+
+              <RoomSelecter/>
             </div>
           </div>
 
