@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import BookingModal from "@/components/BookingModal";
 
 const RoomsPage = () => {
   const rooms = [
@@ -15,6 +14,7 @@ const RoomsPage = () => {
       guests: 2,
       bed: 1,
       image: "./assets/Homepic/room1.png",
+      link: "/rooms/deluxe",
     },
     {
       id: 2,
@@ -25,6 +25,7 @@ const RoomsPage = () => {
       guests: 3,
       bed: 1,
       image: "./assets/Homepic/room2.png",
+      link: "/rooms/executive-balcony",
     },
     {
       id: 3,
@@ -35,21 +36,11 @@ const RoomsPage = () => {
       guests: 2,
       bed: 1,
       image: "./assets/Homepic/room3.png",
+      link: "/rooms/executive-mountain",
     },
   ];
 
-  const [selectedRoom, setSelectedRoom] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = (room) => {
-    setSelectedRoom(room);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setSelectedRoom(null);
-    setIsModalOpen(false);
-  };
+  
 
   return (
     <div>
@@ -89,13 +80,15 @@ const RoomsPage = () => {
                   <p>Bed: {room.bed}</p>
                 </div>
                 <div className="flex justify-between items-center">
+                <Link href={room.link}>
                   <button
-                    onClick={() => openModal(room)}
+                    
                     className="bg-[#9A3D50] text-white py-2 px-4 rounded hover:bg-[#9A3D50]/80"
                   >
                     Book Now
                   </button>
-                  <Link href="/rooms/details" className="text-[#9A3D50] hover:underline">
+                  </Link>
+                  <Link href={room.link} className="text-[#9A3D50] hover:underline">
                     View more &gt;
                   </Link>
                 </div>
@@ -105,9 +98,7 @@ const RoomsPage = () => {
         </div>
       </div>
 
-      {isModalOpen && (
-        <BookingModal room={selectedRoom} onClose={closeModal} />
-      )}
+    
     </div>
   );
 };
