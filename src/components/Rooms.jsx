@@ -17,7 +17,7 @@ const rooms = [
     image: "/assets/Homepic/room2.png",
   },
   {
-    title: "Executive Room with View",
+    title: "Executive Room with Mountain View",
     price: "₹ 10,000/Night",
     image: "/assets/Homepic/room3.png",
   },

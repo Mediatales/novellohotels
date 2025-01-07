@@ -3,7 +3,7 @@ import React from 'react';
 const TestimonialCard = () => {
   const testimonials = [
     {
-      text: "The stay at Novello Hotel was a dream! The staff was incredibly courteous, and the rooms were spotless. Highly recommend their spa services!",
+      text: "The stay at Novello Hotel was a dream! The staff was incredibly courteous, and the rooms were spotless.",
       name: "Rohit Kumar",
       initial: "R",
     },

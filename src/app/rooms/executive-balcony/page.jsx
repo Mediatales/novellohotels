@@ -65,9 +65,9 @@ const Page = () => {
                   <span className="text-sm text-gray-600">🛜 Free WiFi</span>
                   <span className="text-sm text-gray-600">☕ Tea / Coffee</span>
                   <span className="text-sm text-gray-600">🛁 Toiletries</span>
-                  <span className="text-sm text-blue-500 cursor-pointer">
+                  {/* <span className="text-sm text-blue-500 cursor-pointer">
                     +more Amenities
-                  </span>
+                  </span> */}
                 </div>
                 <h3 className="text-lg font-semibold mt-4">Extra Services</h3>
                 <ul className="list-disc list-inside text-sm text-gray-600 mt-2">

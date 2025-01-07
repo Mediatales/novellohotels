@@ -24,13 +24,14 @@ const DestinationCards = () => {
   };
 
   const cardData = [
-    { src: "./assets/Homepic/place1.png", title: "Top Tibba Trek - Mussoorie" },
-    { src: "./assets/Homepic/place2.png", title: "Another Great Spot" },
-    { src: "./assets/Homepic/place3.png", title: "Scenic Mountain View" },
+    { src: "./assets/Homepic/Lal.png", title: "Lal Tibba  - Mussoorie" },
+    { src: "./assets/Homepic/kempty.png", title: "Kempty falls - Mussoorie" },
+    { src: "./assets/Homepic/George.png", title: "George Everest - Mussoorie" },
+    { src: "./assets/Homepic/Landour.png", title: "Landour - Mussoorie" },
   ];
 
   return (
-    <div className=" mt-6 flex justify-center items-center ">
+    <div className=" mt-12 mb-8 flex justify-center items-center ">
       <div className="w-full max-w-7xl px-4">
         <div className="text-center mb-8">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black">
@@ -38,7 +39,7 @@ const DestinationCards = () => {
           </h1>
         </div>
         {/* Large screens - All cards visible */}
-        <div className="hidden lg:grid lg:grid-cols-3 lg:gap-8 lg:justify-center">
+        <div className="hidden lg:grid lg:grid-cols-4 lg:gap-8 lg:justify-center">
           {cardData.map((card, index) => (
             <div
               key={index}
@@ -53,9 +54,9 @@ const DestinationCards = () => {
                 <h3 className="font-semibold text-lg text-gray-900 mb-2 truncate">
                   {card.title}
                 </h3>
-                <p className="text-gray-600">
+                {/* <p className="text-gray-600">
                   Discover the beauty of this destination.
-                </p>
+                </p> */}
               </div>
             </div>
           ))}
