@@ -13,7 +13,6 @@ const Page = () => {
 
   const carouselImages = [
     "https://res.cloudinary.com/derv1v0oi/image/upload/v1734289145/deluxeImg_n26z5o.png",
-
     "https://res.cloudinary.com/dqggm4k7u/image/upload/v1735200971/room1_b17ux9.png",
     "https://res.cloudinary.com/dqggm4k7u/image/upload/v1735205184/room5_s5twil.png",
   ];
@@ -36,6 +35,10 @@ const Page = () => {
           <div className="grid md:grid-cols-2 gap-6 bg-white rounded-lg shadow-md overflow-hidden">
             {/* Image Carousel and Description */}
             <div>
+              {/* Room Name for Smaller Devices */}
+              <h2 className="block md:hidden text-xl font-bold p-4 text-center">
+                Executive Rooms with Balcony
+              </h2>
               <div className="relative">
                 <img
                   src={carouselImages[currentSlide]}
@@ -62,13 +65,10 @@ const Page = () => {
                   range of facilities including:
                 </p>
                 <h3 className="text-lg font-semibold mt-4">Amenities</h3>
-                <div className="flex space-x-4 mt-2">
+                <div className="flex flex-wrap space-x-4 mt-2">
                   <span className="text-sm text-gray-600">🛜 Free WiFi</span>
                   <span className="text-sm text-gray-600">☕ Tea / Coffee</span>
                   <span className="text-sm text-gray-600">🛁 Toiletries</span>
-                  {/* <span className="text-sm text-blue-500 cursor-pointer">
-                    +more Amenities
-                  </span> */}
                 </div>
                 <h3 className="text-lg font-semibold mt-4">Extra Services</h3>
                 <ul className="list-disc list-inside text-sm text-gray-600 mt-2">
@@ -81,7 +81,10 @@ const Page = () => {
 
             {/* Booking Section */}
             <div className="p-4">
-              <h2 className="text-2xl font-bold">Executive Rooms with Balcony</h2>
+              {/* Room Name for Larger Devices */}
+              <h2 className="hidden md:block text-2xl font-bold">
+                Executive Rooms with Balcony
+              </h2>
               <p className="text-gray-600 mt-2">
                 Indulge in luxury at our Executive Rooms with Balcony at the heart of Mussoorie.
               </p>
@@ -112,36 +115,8 @@ const Page = () => {
                 </button>
               </div>
 
-              {/* Date and Guest Selection */}
-
-              {/* <div className="mt-6">
-                <h3 className="text-lg font-semibold">Select Date and Guest</h3>
-                <div className="grid grid-cols-2 gap-4 mt-2">
-                  <input
-                    type="date"
-                    className="border p-2 rounded-lg w-full"
-                    defaultValue="2024-12-25"
-                  />
-                  <input
-                    type="date"
-                    className="border p-2 rounded-lg w-full"
-                    defaultValue="2025-01-02"
-                  />
-                </div>
-                <div className="mt-4">
-                  <select className="w-full border p-2 rounded-lg">
-                    <option>2 Adults - 0 Children</option>
-                    <option>1 Adult - 0 Children</option>
-                    <option>2 Adults - 1 Child</option>
-                  </select>
-                </div>
-              </div> */}
-
-              <RoomSelecter/>
-
-
-
-            </div> 
+              <RoomSelecter />
+            </div>
           </div>
 
           {/* Location Section */}
