@@ -41,7 +41,7 @@ const Page = () => {
                 Welcome to Novello
               </h1>
               <p className="text-xl md:text-2xl mb-8">
-                Experience luxury Redefined
+                Experience luxury redefined
               </p>
               <Link href="/rooms">
                 <button className="inline-flex items-center bg-[#9A3D50] text-white px-8 py-3 rounded-full hover:bg-amber-700 transition-colors duration-300">
