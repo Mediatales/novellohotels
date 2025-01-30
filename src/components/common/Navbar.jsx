@@ -9,25 +9,8 @@ const Navbar = () => {
     isDropdownOpen: false,
     isMobileRoomsDropdownOpen: false,
   });
-  const [rooms, setRooms] = useState([]);
+
   const dropdownRef = useRef(null);
-
-  // Fetch rooms data
-  useEffect(() => {
-    const fetchRooms = async () => {
-      try {
-        const response = await fetch('/api/rooms');
-        const data = await response.json();
-        if (data.success) {
-          setRooms(data.room);
-        }
-      } catch (error) {
-        console.error('Error fetching rooms:', error);
-      }
-    };
-
-    fetchRooms();
-  }, []);
 
   const toggleState = useCallback((key) => {
     setMenuState((prev) => ({
@@ -82,6 +65,12 @@ const Navbar = () => {
     { href: "/contact", label: "Contact" },
   ];
 
+  const roomLinks = [
+    { href: "/rooms/deluxe", label: "Deluxe Room" },
+    { href: "/rooms/executive-mountain", label: "Executive Room with Mountain View" },
+    { href: "/rooms/executive-balcony", label: "Executive Room with Balcony" },
+  ];
+
   return (
     <nav className="bg-[#1B1833] w-full fixed z-50">
       <div className="w-[90%] mx-auto flex justify-between items-center ">
@@ -116,30 +105,30 @@ const Navbar = () => {
             className="relative"
           >
             <Link href="/rooms">
-              <button 
-                className="flex items-center text-gray-100 hover:text-blue-400 transition-colors duration-200"
-                onClick={() => toggleState("isDropdownOpen")}
-              >
-                Rooms
-                <FaChevronDown className={`ml-2 mt-1 items-center text-xs transition-transform duration-200 ${
-                  menuState.isDropdownOpen ? "rotate-180" : ""
-                }`} />
-              </button>
+            <button 
+              className="flex items-center text-gray-100 hover:text-blue-400 transition-colors duration-200"
+              onClick={() => toggleState("isDropdownOpen")}
+            >
+              Rooms
+              <FaChevronDown className={`ml-2 mt-1 items-center text-xs transition-transform duration-200 ${
+                menuState.isDropdownOpen ? "rotate-180" : ""
+              }`} />
+            </button>
             </Link>
             
             {menuState.isDropdownOpen && (
               <ul className="absolute top-full left-0 bg-white rounded-lg shadow-lg py-2 mt-2 min-w-[200px] z-50">
-                {rooms.map((room, index) => (
+                {roomLinks.map((room, index) => (
                   <li key={index} className="px-4 py-2 hover:bg-gray-100">
                     <Link
-                      href={`/rooms/${room.slug}`}
+                      href={room.href}
                       className="block text-gray-800 hover:text-blue-600 transition-colors duration-200"
                       onClick={(e) => {
                         e.stopPropagation();
                         handleLinkClick();
                       }}
                     >
-                      {room.roomName}
+                      {room.label}
                     </Link>
                   </li>
                 ))}
@@ -213,17 +202,17 @@ const Navbar = () => {
                 menuState.isMobileRoomsDropdownOpen ? "max-h-48" : "max-h-0"
               }`}>
                 <ul className="pl-4 py-2">
-                  {rooms.map((room, index) => (
+                  {roomLinks.map((room, index) => (
                     <li key={index} className="py-2">
                       <Link
-                        href={`/rooms/${room.slug}`}
+                        href={room.href}
                         className="block text-gray-100 hover:text-blue-400 transition-colors duration-200"
                         onClick={(e) => {
                           e.stopPropagation();
                           handleLinkClick();
                         }}
                       >
-                        {room.roomName}
+                        {room.label}
                       </Link>
                     </li>
                   ))}
