@@ -4,41 +4,41 @@ import Link from "next/link";
 import { fetchRooms } from "../../lib/apis";
 
 const RoomsPage = () => {
-  // const rooms = [
-  //   {
-  //     id: 1,
-  //     name: "Deluxe Room",
-  //     description: "Indulge in luxury at our Deluxe Rooms in the heart of Mussoorie.",
-  //     price: 3000,
-  //     status: "Available",
-  //     guests: 2,
-  //     bed: 1,
-  //     image: "./assets/Homepic/room1.png",
-  //     link: "/rooms/deluxe",
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "Executive Room with Balcony",
-  //     description: "Indulge in luxury at our Deluxe Rooms in the heart of Mussoorie.",
-  //     price: 4000,
-  //     status: "Available",
-  //     guests: 3,
-  //     bed: 1,
-  //     image: "./assets/Homepic/room2.png",
-  //     link: "/rooms/executive-balcony",
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "Executive Room with Mountain View",
-  //     description: "Indulge in luxury at our Deluxe Rooms in the heart of Mussoorie.",
-  //     price: 6000,
-  //     status: "Available",
-  //     guests: 2,
-  //     bed: 1,
-  //     image: "./assets/Homepic/room3.png",
-  //     link: "/rooms/executive-mountain",
-  //   },
-  // ];
+  const rooms = [
+    {
+      id: 1,
+      name: "Deluxe Room",
+      description: "Indulge in luxury at our Deluxe Rooms in the heart of Mussoorie.",
+      price: 3000,
+      status: "Available",
+      guests: 2,
+      bed: 1,
+      image: "./assets/Homepic/room1.png",
+      link: "/rooms/deluxe",
+    },
+    {
+      id: 2,
+      name: "Executive Room with Balcony",
+      description: "Indulge in luxury at our Deluxe Rooms in the heart of Mussoorie.",
+      price: 4000,
+      status: "Available",
+      guests: 3,
+      bed: 1,
+      image: "./assets/Homepic/room2.png",
+      link: "/rooms/executive-balcony",
+    },
+    {
+      id: 3,
+      name: "Executive Room with Mountain View",
+      description: "Indulge in luxury at our Deluxe Rooms in the heart of Mussoorie.",
+      price: 6000,
+      status: "Available",
+      guests: 2,
+      bed: 1,
+      image: "./assets/Homepic/room3.png",
+      link: "/rooms/executive-mountain",
+    },
+  ];
 
   const [allRooms, setAllRooms] = useState([]);
 
