@@ -13,6 +13,20 @@ export const fetchRooms = async () => {
     }
 };
 
+export const fetchSingleRoom = async (slug) => {
+    try {
+        const response = await axiosInstance.get(Rooms.AllRooms_API + `?slug=${slug}`);
+        console.log("Respone from all Rooms", response)
+
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching users:", error);
+        throw error;
+    }
+};
+
+
+
 export const fetchGallery = async () => {
     try {
         const response = await axiosInstance.get(Gallery.AllGallery_API);
