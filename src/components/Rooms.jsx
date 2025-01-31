@@ -8,17 +8,17 @@ import { ArrowRight } from "lucide-react";
 const rooms = [
   {
     title: "Deluxe Room",
-    price: "₹ 5,000/Night",
+    // price: "₹ 5,000/Night",
     image: "/assets/Homepic/room1.png",
   },
   {
     title: "Executive Room with Balcony",
-    price: "₹ 7,500/Night",
+    // price: "₹ 7,500/Night",
     image: "/assets/Homepic/room2.png",
   },
   {
     title: "Executive Room with Mountain View",
-    price: "₹ 10,000/Night",
+    // price: "₹ 10,000/Night",
     image: "/assets/Homepic/room3.png",
   },
 ];
@@ -58,7 +58,7 @@ export default function RoomPreviewSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
                 <div>
                   <h3 className="text-xl text-white font-semibold mb-2">{room.title}</h3>
-                  <p className="text-gray-200 mb-4">{room.price}</p>
+                  {/* <p className="text-gray-200 mb-4">{room.price}</p> */}
                   <Link
                     href="/rooms"
                     className="inline-flex items-center text-white hover:text-red-400 transition-colors duration-300"
