@@ -112,7 +112,7 @@ const Page = () => {
 
       <div className="mt-10 mb-6">
         <h1 className="text-4xl md:text-5xl font-bold text-black text-center">
-          Our Best <span className="text-[#9A3D50]">Amenities</span>
+          Our Best  <span className="text-[#9A3D50]">Amenities</span>
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-9 place-items-center">
           <img src="./assets/Amenities/Ameniteies1.png" alt="Amenity 1" />
