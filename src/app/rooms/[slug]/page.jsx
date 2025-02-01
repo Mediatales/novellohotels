@@ -169,7 +169,7 @@ const Page = () => {
                     </div>
                 </div>
             </div>
-            {isFormOpen && <BookingForm onClose={closeForm} />}
+            {isFormOpen && <BookingForm roomData={roomData} onClose={closeForm} />}
         </div>
     );
 };

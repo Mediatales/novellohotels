@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import BookingModal from "./BookingModal";
 import Script from "next/script";
 
-const BookingForm = ({ onClose, roomType }) => {
+const BookingForm = ({ onClose, roomType, roomData }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFormVisible, setIsFormVisible] = useState(true);
   const [formData, setFormData] = useState({
@@ -75,35 +75,54 @@ const BookingForm = ({ onClose, roomType }) => {
     setIsFormVisible(true);  // Show the form again if needed
   };
 
-  const [amount, setAmount] = useState("");
+  const [amount, setAmount] = useState(roomData?.rate);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
   const [orderId, setOrderId] = useState("");
 
-  const createOrder = async () => {
+  const createOrder = async (e) => {
+    e.preventDefault();
     try {
+
+      const taxRate = 0.18;
+      const baseAmount = Number(amount);
+      const taxAmount = baseAmount * taxRate;
+      const totalAmount = baseAmount + taxAmount; 
+
       const res = await fetch("/api/createOrder", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ amount: Number(amount) * 100 }),
+        body: JSON.stringify({ amount: Math.round(totalAmount * 100) }),
       });
 
       const data = await res.json();
 
+      console.log("data creating Orders", data)
+
+      
+
       const paymentData = {
         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
-        amount: Number(amount) * 100, // Razorpay expects amount in paise
+        amount: Math.round(totalAmount * 100),
         currency: "INR",
         order_id: data.id,
-        name: "Room Booking",
-        description: `Booking for ${room?.name || "Room"}`,
+        name: roomData?.roomName || "Room",
+        description: `Booking for ${roomData?.roomName || "Room"}`,
         handler: async function (response) {
           console.log("Payment successful:", response);
-          // Generate a random order ID after successful payment
-          const randomOrderId = `N10${Math.floor(Math.random() * 100)}`;
 
-          setOrderId(randomOrderId);
+          await sendBookingEmail({
+            email: formData.email,
+            roomName: roomData?.roomName || "Room",
+            orderId: data.id,
+            amount: Math.round(totalAmount * 100),
+            name : formData.name,
+            phone : formData.phone
+
+          });
+
+          setOrderId(data.id);
           setPaymentSuccess(true); // Trigger the success modal
         },
         prefill: {
@@ -115,8 +134,42 @@ const BookingForm = ({ onClose, roomType }) => {
         },
       };
 
+      console.log("paymentData", paymentData)
+
       const payment = new window.Razorpay(paymentData);
       payment.open();
+
+      // Function to send booking email
+      async function sendBookingEmail({ email, roomName, orderId, amount , name , phone }) {
+        try {
+          const response = await fetch("/api/send-email", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email : [email,"novelloglobehotels@gmail.com"],
+              roomName,
+              orderId,
+              amount,
+              name,
+              phone
+            }),
+          });
+
+          // Check if the response is OK (status code 200-299)
+          if (!response.ok) {
+            const errorResponse = await response.text(); // Read the response as text
+            throw new Error(`API Error: ${response.status} - ${errorResponse}`);
+          }
+
+          const result = await response.json(); // Parse the JSON response
+          console.log("Email sent:", result);
+        } catch (error) {
+          console.error("Error sending email:", error);
+        }
+      }
+
     } catch (error) {
       console.error("Error creating order:", error);
       alert("Something went wrong. Please try again.");
