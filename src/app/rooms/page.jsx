@@ -14,7 +14,7 @@ const RoomsPage = () => {
       guests: 2,
       bed: 1,
       image: "./assets/Homepic/room1.png",
-      link: "/rooms/deluxe",
+      link: "/rooms/deluxe-room",
     },
     {
       id: 2,
