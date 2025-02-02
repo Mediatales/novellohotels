@@ -1,4 +1,4 @@
-import { Gallery, Rooms } from "@/utils/apis";
+import { Booking, Gallery, Rooms } from "@/utils/apis";
 import axiosInstance from "./axiosInstance";
 
 export const fetchRooms = async () => {
@@ -35,6 +35,15 @@ export const fetchGallery = async () => {
         return response.data;
     } catch (error) {
         console.error("Error fetching users:", error);
+        throw error;
+    }
+};
+
+export const createBooking = async (data) => {
+    try {
+        const response = await axiosInstance.post(Booking.BookRoom_API, data);
+        return response.data;
+    } catch (error) {
         throw error;
     }
 };

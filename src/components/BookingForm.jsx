@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import BookingModal from "./BookingModal";
 import Script from "next/script";
+import { createBooking } from "@/lib/apis";
 
 const BookingForm = ({ onClose, roomType, roomData }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -122,6 +123,20 @@ const BookingForm = ({ onClose, roomType, roomData }) => {
 
           });
 
+          await createBookingEntry({
+            email: formData.email,
+            roomName: roomData?.roomName || "Room",
+            orderId: data.id,
+            amount: Math.round(totalAmount * 100),
+            name : formData.name,
+            phone : formData.phone,
+            checkInDate: JSON.parse(localStorage.getItem("bookingData")).checkIn,
+            checkOutDate: JSON.parse(localStorage.getItem("bookingData")).checkOut,
+            adult : JSON.parse(localStorage.getItem("bookingData")).adults,
+            children : JSON.parse(localStorage.getItem("bookingData")).children,
+            roomCount : JSON.parse(localStorage.getItem("bookingData")).rooms
+          });
+
           setOrderId(data.id);
           setPaymentSuccess(true); // Trigger the success modal
         },
@@ -167,6 +182,16 @@ const BookingForm = ({ onClose, roomType, roomData }) => {
           console.log("Email sent:", result);
         } catch (error) {
           console.error("Error sending email:", error);
+        }
+      }
+
+      async function createBookingEntry({ email, roomName, orderId, amount , name , phone , checkInDate , checkOutDate , adult , children , roomCount }) {
+        try {
+          const response = await createBooking({ email, roomName, orderId, amount , name , phone , checkInDate , checkOutDate , adult , children , roomCount });
+          const result = await response.json(); // Parse the JSON response
+          console.log("Booking entry created:", result);
+        } catch (error) {
+          console.error("Error creating booking entry:", error);
         }
       }
 
