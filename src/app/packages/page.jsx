@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link'; 
 
 const Page = () => {
   return (
@@ -22,7 +23,7 @@ const Page = () => {
         <h2 className="text-center text-3xl font-bold mb-8">Special Offers</h2>
         <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
           {/* Honeymoon Special */}
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+          <Link href = "/gallery"><div className="bg-white rounded-lg shadow-lg overflow-hidden">
             <img
               src="./assets/packages/roomImg.png"
               alt="Honeymoon Special"
@@ -31,9 +32,10 @@ const Page = () => {
             <div className="p-4">
               <h3 className="text-center text-xl font-medium">Honeymoon Special</h3>
             </div>
-          </div>
+          </div></Link>
 
           {/* Breakfast Special */}
+          <Link href="/gallery">
           <div className="bg-white rounded-lg shadow-lg overflow-hidden">
             <img
               src="./assets/packages/BreakfastImg.png"
@@ -44,6 +46,7 @@ const Page = () => {
               <h3 className="text-center text-xl font-medium">Breakfast Special</h3>
             </div>
           </div>
+          </Link>
         </div>
       </div>
     </div>

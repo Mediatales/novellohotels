@@ -62,7 +62,7 @@ const Navbar = () => {
     { href: "/gallery", label: "Gallery" },
     { href: "/restaurant", label: "Restaurant" },
     { href: "/packages", label: "Packages" },
-    { href: "/contact", label: "Contact" },
+    
   ];
 
   const roomLinks = [
@@ -84,69 +84,74 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex items-center space-x-8">
-          {navigationLinks.map((link, index) => {
-            if (link.label === "Packages") return null;
-            return (
-              <li key={index}>
-                <Link
-                  href={link.href}
-                  className="text-gray-100 hover:text-blue-400 transition-colors duration-200"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            );
-          })}
+        {/* Desktop Menu */}
+<ul className="hidden md:flex items-center space-x-8">
+  {navigationLinks.map((link, index) => {
+    if (link.label === "Packages") return null;
+    return (
+      <li key={index}>
+        <Link
+          href={link.href}
+          className="text-gray-100 hover:text-blue-400 transition-colors duration-200"
+        >
+          {link.label}
+        </Link>
+      </li>
+    );
+  })}
 
-          {/* Desktop Rooms Dropdown */}
-          <li
-            ref={dropdownRef}
-            className="relative"
-          >
-            <Link href="/rooms">
-            <button 
-              className="flex items-center text-gray-100 hover:text-blue-400 transition-colors duration-200"
-              onClick={() => toggleState("isDropdownOpen")}
+  {/* Desktop Rooms Dropdown */}
+  <li ref={dropdownRef} className="relative">
+    <button 
+      className="flex items-center text-gray-100 hover:text-blue-400 transition-colors duration-200"
+      onClick={() => toggleState("isDropdownOpen")}
+    >
+      Rooms
+      <FaChevronDown className={`ml-2 mt-1 items-center text-xs transition-transform duration-200 ${
+        menuState.isDropdownOpen ? "rotate-180" : ""
+      }`} />
+    </button>
+
+    {menuState.isDropdownOpen && (
+      <ul className="absolute top-full left-0 bg-white rounded-lg shadow-lg py-2 mt-2 min-w-[200px] z-50">
+        {roomLinks.map((room, index) => (
+          <li key={index} className="px-4 py-2 hover:bg-gray-100">
+            <Link
+              href={room.href}
+              className="block text-gray-800 hover:text-blue-600 transition-colors duration-200"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleLinkClick();
+              }}
             >
-              Rooms
-              <FaChevronDown className={`ml-2 mt-1 items-center text-xs transition-transform duration-200 ${
-                menuState.isDropdownOpen ? "rotate-180" : ""
-              }`} />
-            </button>
+              {room.label}
             </Link>
-            
-            {menuState.isDropdownOpen && (
-              <ul className="absolute top-full left-0 bg-white rounded-lg shadow-lg py-2 mt-2 min-w-[200px] z-50">
-                {roomLinks.map((room, index) => (
-                  <li key={index} className="px-4 py-2 hover:bg-gray-100">
-                    <Link
-                      href={room.href}
-                      className="block text-gray-800 hover:text-blue-600 transition-colors duration-200"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleLinkClick();
-                      }}
-                    >
-                      {room.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            )}
           </li>
+        ))}
+      </ul>
+    )}
+  </li>
 
-          {navigationLinks.slice(-2).map((link, index) => (
-            <li key={index}>
-              <Link
-                href={link.href}
-                className="text-gray-100 hover:text-blue-400 transition-colors duration-200"
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+  <li>
+    <Link
+      href="/packages"
+      className="text-gray-100 hover:text-blue-400 transition-colors duration-200"
+    >
+      Packages
+
+    </Link>
+  </li>
+
+  <li>
+    <Link
+      href="/contact"
+      className="text-gray-100 hover:text-blue-400 transition-colors duration-200"
+    >
+      Contact
+    </Link>
+  </li>
+</ul>
+
 
         {/* Mobile Menu Button */}
         <button
