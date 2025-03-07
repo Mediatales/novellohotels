@@ -62,8 +62,10 @@ const ContactPage = () => {
                 <strong>Phone:</strong> +91 8445581177, +91 8266966987
               </p>
               <p>
-                <strong>Working Hours:</strong> Mon - Fri: 9:00AM to 6:00PM,
-                Sat - Sun: 8:00AM to 4:00PM
+                <strong>Check in :</strong> 01:00 PM,
+              </p>
+              <p>
+                <strong>Check out :</strong> 11:00 AM,
               </p>
             </div>
           </div>
