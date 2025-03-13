@@ -112,7 +112,7 @@ const RoomsPage = () => {
           ))}
         </div> */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {allRooms.map((room) => (
+          {allRooms.filter(room => room?.roomStatus === 'Available').map((room) => (
             <div key={room._id} className="border rounded-lg shadow-lg overflow-hidden">
               <img
                 src={room?.roomImage[0]}
