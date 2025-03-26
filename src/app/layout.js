@@ -16,7 +16,7 @@
 
 
 export const metadata = {
-  title: "Novello Hotels - Luxury in Mussoorie",
+  title: "Novello globe Hotels & Resorts",
   description: "Welcome to The Novello by Hotel Evergreen, a serene getaway amidst the hills of Mussoorie.",
   icons: {
     icon: "/favicon.ico",
