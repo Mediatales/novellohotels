@@ -5,31 +5,31 @@ import Link from 'next/link';
 const ImageCarousel = () => {
   const images = [
     {
-      url: "https://res.cloudinary.com/dqggm4k7u/image/upload/v1735200971/room1_b17ux9.png",
+      url: "https://res.cloudinary.com/dvz0d0bdb/image/upload/v1740146256/hvwpgsg3c9rp8pf8glfq.jpg",
       orientation: "landscape"
     },
     {
-      url: "https://res.cloudinary.com/dqggm4k7u/image/upload/v1735203337/rest1_s6fayt.png",
+      url: "https://res.cloudinary.com/dvz0d0bdb/image/upload/v1741677094/tidkepodsxahu7k9mq46.jpg",
       orientation: "portrait"
     },
     {
-      url: "https://res.cloudinary.com/dqggm4k7u/image/upload/v1735207070/view2_nxk9cf.png",
+      url: "https://res.cloudinary.com/dvz0d0bdb/image/upload/v1741588068/yhdrqposgkdqx7eqwtr1.jpg",
       orientation: "landscape"
     },
     {
-      url: "https://res.cloudinary.com/dqggm4k7u/image/upload/v1735207101/view9_mgdwfp.png",
+      url: "https://res.cloudinary.com/dvz0d0bdb/image/upload/v1741339520/w8nwgpts09rwwptcbnqq.jpg",
       orientation: "landscape"
     },
     {
-      url: "https://res.cloudinary.com/dqggm4k7u/image/upload/v1735206545/rest9_gnw6le.png",
+      url: "https://res.cloudinary.com/dvz0d0bdb/image/upload/v1741670475/rkb1mccwjdezeehmvbhs.jpg",
       orientation: "portrait"
     },
     {
-      url: "https://res.cloudinary.com/dqggm4k7u/image/upload/v1735205218/room9_dxpccr.png",
+      url: "https://res.cloudinary.com/dvz0d0bdb/image/upload/v1741677467/fc4epsh3jhpenmihm7ul.jpg",
       orientation: "landscape"
     },
     {
-      url: "https://res.cloudinary.com/dqggm4k7u/image/upload/v1735205218/room9_dxpccr.png",
+      url: "https://res.cloudinary.com/dvz0d0bdb/image/upload/v1741677094/tidkepodsxahu7k9mq46.jpg",
       orientation: "landscape"
     },
   ];
