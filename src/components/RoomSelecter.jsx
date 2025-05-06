@@ -314,6 +314,7 @@ const DateGuestRoomSelector = ({ roomData }) => {
                 filterDate={(date) => !disableDates(date)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-[#AB4459] focus:border-[#AB4459] text-sm"
                 placeholderText="Select check-in date"
+                 dateFormat="dd/MM/yyyy"
               />
             </div>
           </div>
@@ -329,6 +330,7 @@ const DateGuestRoomSelector = ({ roomData }) => {
                 filterDate={(date) => !disableDates(date)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-[#AB4459] focus:border-[#AB4459] text-sm"
                 placeholderText="Select check-out date"
+                dateFormat="dd/MM/yyyy"
               />
             </div>
           </div>
