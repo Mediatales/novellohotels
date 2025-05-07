@@ -9,34 +9,35 @@ const RoomsPage = () => {
       id: 1,
       name: "Deluxe Room",
       description: "Indulge in luxury at our Deluxe Rooms in the heart of Mussoorie.",
-      price: 3000,
-      status: "Available",
-      guests: 2,
-      bed: 1,
+      // price: 3000,
+      // status: "Available",
+      // guests: 2,
+      // bed: 1,
       image: "./assets/Homepic/room1.png",
-      link: "/rooms/deluxe-room",
+      link: "https://live.ipms247.com/booking/book-rooms-thenovelloglobehotel",
     },
     {
       id: 2,
       name: "Executive Room with Balcony",
       description: "Indulge in luxury at our Deluxe Rooms in the heart of Mussoorie.",
-      price: 4000,
-      status: "Available",
-      guests: 3,
-      bed: 1,
+      // price: 4000,
+      // status: "Available",
+      // guests: 3,
+      // bed: 1,
       image: "./assets/Homepic/room2.png",
-      link: "/rooms/executive-balcony",
+      link: "https://live.ipms247.com/booking/book-rooms-thenovelloglobehotel",
+      
     },
     {
       id: 3,
       name: "Executive Room with Mountain View",
       description: "Indulge in luxury at our Deluxe Rooms in the heart of Mussoorie.",
-      price: 6000,
-      status: "Available",
-      guests: 2,
-      bed: 1,
+      // price: 6000,
+      // status: "Available",
+      // guests: 2,
+      // bed: 1,
       image: "./assets/Homepic/room3.png",
-      link: "/rooms/executive-mountain",
+      link: "https://live.ipms247.com/booking/book-rooms-thenovelloglobehotel",
     },
   ];
 
@@ -73,7 +74,7 @@ const RoomsPage = () => {
       </div>
 
       <div className="container mx-auto my-10 px-4 sm:px-6 lg:px-8">
-        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {rooms.map((room) => (
             <div key={room.id} className="border rounded-lg shadow-lg overflow-hidden">
               <img
@@ -84,18 +85,18 @@ const RoomsPage = () => {
               <div className="p-4">
                 <h3 className="text-xl font-semibold mb-2">{room.name}</h3>
                 <p className="text-sm text-gray-600 mb-2">{room.description}</p>
-                <p className="text-lg font-semibold text-[#9A3D50] mb-4">
+                {/* <p className="text-lg font-semibold text-[#9A3D50] mb-4">
                   ₹ {room.price} / Night
-                </p>
-                <div className="text-sm text-gray-600 mb-4">
+                </p> */}
+                {/* <div className="text-sm text-gray-600 mb-4">
                   <p>
                     Status: <span className="text-green-600">{room.status}</span>
                   </p>
                   <p>Guests: {room.guests}</p>
                   <p>Bed: {room.bed}</p>
-                </div>
+                </div> */}
                 <div className="flex justify-between items-center">
-                  <Link href={room.link}>
+                  <Link href="https://live.ipms247.com/booking/book-rooms-thenovelloglobehotel" target="_blank">
                     <button
 
                       className="bg-[#9A3D50] text-white py-2 px-4 rounded hover:bg-[#9A3D50]/80"
@@ -103,15 +104,20 @@ const RoomsPage = () => {
                       Book Now
                     </button>
                   </Link>
-                  <Link href={room.link} className="text-[#9A3D50] hover:underline">
+                  {/* <Link href={room.link} className="text-[#9A3D50] hover:underline">
                     View more &gt;
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </div>
           ))}
-        </div> */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        </div>
+
+
+        {/* dynamic with admin code  */}
+
+
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {allRooms.filter(room => room?.roomStatus === 'Available').map((room) => (
             <div key={room._id} className="border rounded-lg shadow-lg overflow-hidden">
               <img
@@ -148,7 +154,7 @@ const RoomsPage = () => {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
 
 

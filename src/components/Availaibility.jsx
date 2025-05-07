@@ -126,7 +126,7 @@ const DateGuestRoomSelector = () => {
 
       {/* Check Availability Button */}
       <div className="w-full md:w-1/4 mt-7">
-        <Link href="/rooms">
+        <Link href="https://live.ipms247.com/booking/book-rooms-thenovelloglobehotel" target='_blank'>
           <button className="w-full bg-[#AB4459] text-white font-semibold px-4 py-2 rounded hover:bg-red-700">
             Check Availability
           </button>
