@@ -67,8 +67,8 @@ const Navbar = () => {
 
   const roomLinks = [
     { href: "https://live.ipms247.com/booking/book-rooms-thenovelloglobehotel", label: "Deluxe Room" },
-    { href: "https://live.ipms247.com/booking/book-rooms-thenovelloglobehotel", label: "Executive Room with Mountain View" },
-    { href: "https://live.ipms247.com/booking/book-rooms-thenovelloglobehotel", label: "Executive Room with Balcony" },
+    { href: "https://live.ipms247.com/booking/book-rooms-thenovelloglobehotel", label: "Executive With View" },
+    { href: "https://live.ipms247.com/booking/book-rooms-thenovelloglobehotel", label: "Executive With Balcony And View" },
   ];
 
   return (

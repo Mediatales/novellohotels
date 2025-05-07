@@ -18,7 +18,18 @@ const RoomsPage = () => {
     },
     {
       id: 2,
-      name: "Executive Room with Balcony",
+      name: "Executive With View",
+      description: "Indulge in luxury at our Deluxe Rooms in the heart of Mussoorie.",
+      // price: 6000,
+      // status: "Available",
+      // guests: 2,
+      // bed: 1,
+      image: "./assets/Homepic/room3.png",
+      link: "https://live.ipms247.com/booking/book-rooms-thenovelloglobehotel",
+    },
+    {
+      id: 3,
+      name: "Executive With Balcony And View",
       description: "Indulge in luxury at our Deluxe Rooms in the heart of Mussoorie.",
       // price: 4000,
       // status: "Available",
@@ -28,17 +39,7 @@ const RoomsPage = () => {
       link: "https://live.ipms247.com/booking/book-rooms-thenovelloglobehotel",
       
     },
-    {
-      id: 3,
-      name: "Executive Room with Mountain View",
-      description: "Indulge in luxury at our Deluxe Rooms in the heart of Mussoorie.",
-      // price: 6000,
-      // status: "Available",
-      // guests: 2,
-      // bed: 1,
-      image: "./assets/Homepic/room3.png",
-      link: "https://live.ipms247.com/booking/book-rooms-thenovelloglobehotel",
-    },
+    
   ];
 
   const [allRooms, setAllRooms] = useState([]);
